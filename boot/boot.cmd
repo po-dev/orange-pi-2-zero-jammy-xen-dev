@@ -2,7 +2,7 @@
 #
 # Please edit /boot/orangepiEnv.txt to set supported parameters
 #
-
+#
 # default values
 
 setenv load_addr "0x46000000"
