@@ -104,7 +104,7 @@ fi
 load ${devtype} ${devnum} ${ramdisk_addr_r} ${prefix}uInitrd
 load ${devtype} ${devnum} ${kernel_addr_r} ${prefix}Image
 echo "OOOOOOOOO check what boots here! OOOOOOOOO"
-booti ${kernel_addr_r} ${ramdisk_addr_r} ${xen_addr_r} ${fdt_addr_r}
+booti ${kernel_addr_r} ${ramdisk_addr_r} ${xen_addr_r} ${fdt_addr}
 
 # Recompile with:
 # mkimage -C none -A arm -T script -d /boot/boot.cmd /boot/boot.scr
