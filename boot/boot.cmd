@@ -7,6 +7,7 @@
 
 setenv load_addr "0x46000000"
 setenv kernel_addr_r "0x40080000"
+setenv ramdisk_addr_r 0x43000000
 setenv xen_addr_r 0x45000000
 setenv fdt_addr 0x44000000
 setenv overlay_error "false"
