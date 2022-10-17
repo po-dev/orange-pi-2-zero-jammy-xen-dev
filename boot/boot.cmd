@@ -17,7 +17,9 @@ setenv rootfstype "ext4"
 setenv console "both"
 setenv docker_optimizations "on"
 setenv bootlogo "false"
-setenv CONFIG_DEVICE_TREE_DEBUG=y
+setenv loglvl "all"
+setenv guest_loglvl "all"
+#setenv CONFIG_DEVICE_TREE_DEBUG "y"
 
 
 ext4load mmc 0 ${kernel_addr_r} orangepiz2/Image;
@@ -37,6 +39,7 @@ fdt set /chosen/module@0 bootargs "console=hvc0 ro root=/dev/mmcblk0p1 rootwait 
 setenv bootargs "console=dtuart dtuart=/soc/serial@5000000 root=/dev/mmcblk0p1 rootwait dom0_mem=128M"
 
 #echo "does xen boot here?"
+#print construct_dom0()
 booti ${xen_addr_r} - ${fdt_addr}
 
 
@@ -107,7 +110,7 @@ fi
 load ${devtype} ${devnum} ${ramdisk_addr_r} ${prefix}uInitrd
 load ${devtype} ${devnum} ${kernel_addr_r} ${prefix}Image
 echo "OOOOOOOOO check what boots here! OOOOOOOOO fdt_addr spam"
-print construct_dom0()
+
 booti ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr}
 
 
