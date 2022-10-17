@@ -18,7 +18,7 @@ setenv docker_optimizations "on"
 setenv bootlogo "false"
 
 ext4load mmc 0 ${kernel_addr_r} orangepiz2/Image;
-ext4load mmc 0 ${fdt_addr} orangepiz2/sun50i-h6-orangepi-zero-2.dtb;
+ext4load mmc 0 ${fdt_addr} orangepiz2/sun50i-h616-orangepi-zero-2.dtb;
 ext4load mmc 0 ${xen_addr_r} orangepiz2/xen.efi;
 
 fdt addr ${fdt_addr} 0x40000
