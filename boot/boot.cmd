@@ -17,6 +17,8 @@ setenv rootfstype "ext4"
 setenv console "both"
 setenv docker_optimizations "on"
 setenv bootlogo "false"
+setenv CONFIG_DEVICE_TREE_DEBUG=y
+
 
 ext4load mmc 0 ${kernel_addr_r} orangepiz2/Image;
 ext4load mmc 0 ${fdt_addr} orangepiz2/sun50i-h616-orangepi-zero2.dtb;
@@ -104,15 +106,10 @@ fi
 
 load ${devtype} ${devnum} ${ramdisk_addr_r} ${prefix}uInitrd
 load ${devtype} ${devnum} ${kernel_addr_r} ${prefix}Image
-<<<<<<< HEAD
 echo "OOOOOOOOO check what boots here! OOOOOOOOO fdt_addr spam"
+print construct_dom0()
 booti ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr}
-=======
-echo "OOOOOOOOO check what boots here! OOOOOOOO - shortened"
-booti ${xen_addr_r} - ${fdt_addr} 
 
-# ${kernel_addr_r} ${ramdisk_addr_r}
->>>>>>> 6bf9aba659752eb09b2b39921e3a41d073f035c6
 
 # Recompile with:
 # mkimage -C none -A arm -T script -d /boot/boot.cmd /boot/boot.scr
