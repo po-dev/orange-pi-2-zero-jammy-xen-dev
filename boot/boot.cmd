@@ -34,7 +34,7 @@ fdt set /chosen/module@0 bootargs "console=hvc0 ro root=/dev/mmcblk0p1 rootwait 
 setenv bootargs "console=dtuart dtuart=/soc/serial@5000000 root=/dev/mmcblk0p1 rootwait dom0_mem=128M"
 
 #echo "does xen boot here?"
-#booti ${xen_addr_r} - ${fdt_addr}
+booti ${xen_addr_r} - ${fdt_addr}
 
 
 # Print boot source
@@ -104,7 +104,7 @@ fi
 load ${devtype} ${devnum} ${ramdisk_addr_r} ${prefix}uInitrd
 load ${devtype} ${devnum} ${kernel_addr_r} ${prefix}Image
 echo "OOOOOOOOO check what boots here! OOOOOOOOO fdt_addr spam"
-booti ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr} ${xen_addr_r}
+booti ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr}
 
 # Recompile with:
 # mkimage -C none -A arm -T script -d /boot/boot.cmd /boot/boot.scr
