@@ -7,6 +7,7 @@
 
 setenv load_addr "0x46000000"
 setenv kernel_addr_r "0x40080000"
+setenv ramdisk_addr_r 0x43000000
 setenv xen_addr_r 0x45000000
 setenv fdt_addr 0x44000000
 setenv overlay_error "false"
@@ -103,8 +104,15 @@ fi
 
 load ${devtype} ${devnum} ${ramdisk_addr_r} ${prefix}uInitrd
 load ${devtype} ${devnum} ${kernel_addr_r} ${prefix}Image
+<<<<<<< HEAD
 echo "OOOOOOOOO check what boots here! OOOOOOOOO fdt_addr spam"
 booti ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr}
+=======
+echo "OOOOOOOOO check what boots here! OOOOOOOO - shortened"
+booti ${xen_addr_r} - ${fdt_addr} 
+
+# ${kernel_addr_r} ${ramdisk_addr_r}
+>>>>>>> 6bf9aba659752eb09b2b39921e3a41d073f035c6
 
 # Recompile with:
 # mkimage -C none -A arm -T script -d /boot/boot.cmd /boot/boot.scr
