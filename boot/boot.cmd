@@ -15,4 +15,4 @@ fdt mknod /chosen dom0-ramdisk
 fdt set /chosen/dom0-ramdisk compatible  "xen,linux-initrd" "xen,multiboot-module" "multiboot,module"
 fdt set /chosen/dom0-ramdisk reg <0x0 0x4E000000 0x0 0x502ff600>
 setenv fdt_high 0xffffffffffffffff
-booti 0x51000000 - 0x46000000
+booti 0x48000000 - 0x46000000
