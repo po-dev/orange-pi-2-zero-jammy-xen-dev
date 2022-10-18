@@ -3,7 +3,7 @@ load mmc 0:1 0x4E000000 /boot/initrd
 load mmc 0:1 0x48000000 /boot/xen
 load mmc 0:1 0x46000000 /boot/sun50i-h616-orangepi-zero2.dtb
 fdt addr 0x46000000
-fdt resize 1024
+fdt resize
 fdt set /chosen \#address-cells <0x2>
 fdt set /chosen \#size-cells <0x2>
 fdt set /chosen xen,xen-bootargs "console=dtuart dtuart=serial0 dom0_mem=128M dom0_max_vcpus=1 bootscrub=0 vwfi=native sched=null  "
