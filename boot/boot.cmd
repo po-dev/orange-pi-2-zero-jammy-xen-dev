@@ -1,5 +1,5 @@
 load mmc 0:1 0x51000000 /boot/Image
-load mmc 0:1 0x4E000000 /boot/initrd/
+load mmc 0:1 0x4E000000 /boot/initrd
 load mmc 0:1 0x48000000 /boot/xen
 load mmc 0:1 0x46000000 /boot/sun50i-h616-orangepi-zero2.dtb
 fdt addr 0x46000000
