@@ -1,7 +1,7 @@
-load mmc 0:1 0xE00000 Image
-load mmc 0:1 0x2C00000 initrd
-load mmc 0:1 0x5100000 xen
-load mmc 0:1 0x4600000 sun50i-h616-orangepi-zero2.dtb
+load mmc 0:1 0xE00000 ./Image
+load mmc 0:1 0x2C00000 ./initrd
+load mmc 0:1 0x5100000 ./xen
+load mmc 0:1 0x4600000 ./sun50i-h616-orangepi-zero2.dtb
 fdt addr 0x46000000
 fdt resize 1024
 fdt set /chosen \#address-cells <0x2>
