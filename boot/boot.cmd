@@ -19,6 +19,7 @@ setenv docker_optimizations "on"
 setenv bootlogo "false"
 setenv loglvl "all"
 setenv guest_loglvl "all"
+setenv CMDLINE_EDITING "true"
 #setenv CONFIG_DEVICE_TREE_DEBUG "y"
 
 
