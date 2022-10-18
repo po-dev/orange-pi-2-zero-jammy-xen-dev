@@ -38,7 +38,7 @@ fdt set /chosen/module@0 bootargs "console=hvc0 noreboot=true ro root=/dev/mmcbl
 
 #setenv bootargs "console=dtuart dtuart=/soc/serial@5000000 root=/dev/mmcblk0p1 rootwait dom0_mem=128M"
 
-#echo "does xen boot here?"
+echo "does xen boot here?"
 #print construct_dom0()
 booti ${xen_addr_r} - ${fdt_addr}
 
@@ -63,7 +63,10 @@ if test "${bootlogo}" = "true"; then setenv consoleargs "bootsplash.bootfile=boo
 # mmc 0 is always mapped to device u-boot (2016.09+) was loaded from
 if test "${devtype}" = "mmc"; then part uuid mmc 0:1 partuuid; fi
 
-setenv bootargs "root=${rootdev} rootwait rootfstype=${rootfstype} ${consoleargs} consoleblank=0 loglevel=${verbosity} ubootpart=${partuuid} usb-storage.quirks=${usbstoragequirks} ${extraargs} ${extraboardargs}"
+
+setenv bootargs "console=hvc0 noreboot=true ro root=/dev/mmcblk0p1 clk_ignore_unused dom0_mem=128M rootwait rootfstype=${rootfstype} ${consoleargs} consoleblank=0 loglevel=${verbosity} ubootpart=${partuuid} usb-storage.quirks=${usbstoragequirks} ${extraargs} ${extraboardargs}"
+
+#setenv bootargs "root=${rootdev} rootwait rootfstype=${rootfstype} ${consoleargs} consoleblank=0 loglevel=${verbosity} ubootpart=${partuuid} usb-storage.quirks=${usbstoragequirks} ${extraargs} ${extraboardargs}"
 
 if test "${docker_optimizations}" = "on"; then setenv bootargs "${bootargs} cgroup_enable=memory swapaccount=1"; fi
 
