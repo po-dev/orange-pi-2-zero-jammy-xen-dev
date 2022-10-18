@@ -34,7 +34,7 @@ fdt set /chosen \#size-cells <1>
 fdt mknod /chosen module@0
 fdt set /chosen/module@0 compatible "xen,linux-zimage" "xen,multiboot-module"
 fdt set /chosen/module@0 reg <${kernel_addr_r} 0x02000000>
-fdt set /chosen/module@0 bootargs "console=hvc0 noreboot=1 ro root=/dev/mmcblk0p1 rootwait clk_ignore_unused dom0_mem=128M "
+fdt set /chosen/module@0 bootargs "console=hvc0 noreboot=true ro root=/dev/mmcblk0p1 rootwait clk_ignore_unused dom0_mem=128M "
 
 #setenv bootargs "console=dtuart dtuart=/soc/serial@5000000 root=/dev/mmcblk0p1 rootwait dom0_mem=128M"
 
