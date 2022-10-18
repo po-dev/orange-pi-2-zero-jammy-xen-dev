@@ -38,7 +38,7 @@ fdt set /chosen/module@0 bootargs "console=hvc0 noreboot=true ro root=/dev/mmcbl
 
 #setenv bootargs "console=dtuart dtuart=/soc/serial@5000000 root=/dev/mmcblk0p1 rootwait dom0_mem=128M"
 
-echo "does xen boot here?"
+echo "0000000000000 does xen boot here? 0000000000000"
 #print construct_dom0()
 booti ${xen_addr_r} - ${fdt_addr}
 
